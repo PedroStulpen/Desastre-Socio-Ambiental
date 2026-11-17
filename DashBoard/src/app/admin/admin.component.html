@@ -1,0 +1,50 @@
+<app-layout>
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav role="navigation" class="menuLateralMobile">
+      <app-admin-menu-lateral (sidenavClose)="sidenav.close()"></app-admin-menu-lateral>
+    </mat-sidenav>
+    <mat-sidenav-content style="overflow: hidden !important;">
+      <app-admin-header (sidenavToggle)="sidenav.toggle()"></app-admin-header>
+      <mat-sidenav-container class="example-sidenav-container" autosize style="margin-top: 50px;">
+        <mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true" fxHide.xs>
+          <mat-nav-list class="dashboard">
+            <mat-list-item>
+              <mat-icon mat-list-icon class="chevron-button sidenav-button" (click)="isExpanded = !isExpanded"
+                [ngClass]="{'rotated': isExpanded}">chevron_right</mat-icon>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <a mat-list-item [ngClass]="menu3?'menu-aberto':'menu-fechado'" (click)="toggle(3);" routerLink="/admin-necessidade">
+              <mat-icon mat-list-icon>checklist</mat-icon>
+              <p matLine *ngIf="isExpanded">Lista de Necessidades</p>
+            </a>
+            <mat-divider></mat-divider>
+            <a mat-list-item [ngClass]="menu4?'menu-aberto':'menu-fechado'" (click)="toggle(4);" routerLink="/admin-excedente">
+              <mat-icon mat-list-icon>checklist_rtl</mat-icon>
+              <p matLine *ngIf="isExpanded">Lista de Disponibilidades</p>
+            </a>
+            <!-- <mat-divider></mat-divider>
+            <a mat-list-item [ngClass]="menu2?'menu-aberto':'menu-fechado'" (click)="toggle(1);" routerLink="/admin-item">
+              <mat-icon mat-list-icon>format_list_numbered</mat-icon>
+              <p matLine *ngIf="isExpanded">Lista de Itens</p>
+            </a> -->
+            <mat-divider></mat-divider>
+            <a mat-list-item [ngClass]="menu2?'menu-aberto':'menu-fechado'" (click)="toggle(2);" routerLink="/admin-perfil">
+              <mat-icon mat-list-icon>person</mat-icon>
+              <p matLine *ngIf="isExpanded">Perfil</p>
+            </a>    
+            <mat-divider></mat-divider>
+            <a mat-list-item (click)="toggleActive($event); sair();" style="margin-bottom: 100px;">
+              <mat-icon mat-list-icon>logout</mat-icon>
+              <p matLine *ngIf="isExpanded">Sair</p>
+            </a>
+          </mat-nav-list>          
+        </mat-sidenav>
+        <div class="content conteudo">
+          <main>
+            <router-outlet></router-outlet>
+          </main>
+        </div>
+      </mat-sidenav-container>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</app-layout>

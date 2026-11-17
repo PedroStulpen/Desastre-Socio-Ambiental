@@ -1,0 +1,218 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* --------------- snackbar ---------------- */
+.msg-success {
+  background-color: #28a745 !important;
+  color: #fff;
+  z-index: 10000000 !important;
+}
+
+.msg-error {
+  background-color: #e35e6b;
+  color: #fff;
+  z-index: 10000000 !important;
+}
+
+.error {
+  color: #e35e6b;
+}
+
+.my-snack-bar button {
+  background-color: gray;
+  color: white;
+}
+
+.mat-simple-snackbar-action {
+  color: #000000;
+}
+
+.cdk-overlay-pane {
+  z-index: 1000000 !important;
+}
+
+.cdk-overlay-container {
+  z-index: 1000000 !important;
+}
+
+/* --------------- Fim snackbar ---------------- */
+
+/* Admin*/
+/* titulos das paginas admin */
+.admin-barraTitulo {
+  border-bottom: 1px solid #0a0044 !important;
+}
+
+.admin-iconeTitulo {
+  margin-left: 10px;
+  color: #120055;
+}
+
+.admin-textoTitulo {
+  margin-left: 10px;
+  color: #120055;
+  font-size: clamp(0.8em, 0.8em + 1vw, 1.3em);
+  padding-top: 8px;
+}
+
+/* fim titulos das paginas */
+
+.admin-titulo-modal {
+  font-size: 1.3em;
+}
+
+.btn-admin-sucesso {
+  /* width: 150px; */
+  background-color: #28a745;
+  color: #fff;
+  margin-right: 15px !important;
+}
+
+.btn-admin-tamanho {
+  /* width: 150px; */
+}
+
+.btn-admin-cor {
+  background-color: #d4d4d4;
+  color: #000000 !important;
+}
+
+/* fim admin */
+
+.corlogo {
+  color: #ffffff !important;
+}
+
+.cor-hambuguer {
+  color: #203c8a !important;
+  font-size: 1.8em;
+}
+
+.largura-btn-grid {
+  max-width: 140px !important;
+  min-width: 60px !important;
+}
+
+/* alterar cor checkbox */
+.mat-checkbox-checked.mat-accent .mat-checkbox-background,
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: rgb(38, 126, 60);
+}
+
+/* -------- */
+
+/* ---- Modal ---- */
+.largura-modal-ticket > .modal-dialog {
+  max-width: 95% !important;
+  min-width: 95% !important;
+  width: 95% !important;
+}
+
+.largura-modal-ticket2 > .modal-dialog {
+  max-width: 80% !important;
+  min-width: 80% !important;
+  width: 80% !important;
+}
+
+.modalclass {
+  background-color: rgba(0, 0, 0, 0.61) !important;
+}
+
+/* -------- */
+
+.cursor {
+  cursor: pointer;
+}
+
+.campo {
+  margin-top: 15px;
+}
+
+.asterisco {
+  color: rgb(221, 0, 0) !important;
+  margin-left: 2px;
+  font-weight: bold;
+}
+
+.fundoReadOnly {
+  background-color: #fff !important;
+}
+
+.mouse {
+  cursor: pointer;
+}
+
+/* tooltip */
+.tooltip-class .tooltip-inner {
+  background-color: rgb(247, 247, 247) !important;
+  color: #000000;
+  border: 1px solid #696969;
+  margin-left: 7px;
+}
+
+.tooltip-class .arrow::before {
+  border-top-color: rgb(230, 230, 230) !important;
+}
+
+.corSeguidor {
+  background-color: #dbe4ec;
+}
+.corNormal {
+  background-color: #ffffff;
+}
+.corNovo {
+  background-color: #eeeeee;
+}
+
+.largura {
+  min-width: 70px;
+  /* width: 145px !important; */
+}
+
+.larguraEditar {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  min-width: 70px;
+  width: 120px !important;
+}
+
+.larguraExcluir {
+  min-width: 70px;
+  width: 120px !important;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.espacamento {
+  white-space: nowrap !important;
+  padding-right: 5px !important;
+  padding-left: 5px !important;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td,
+th {
+  width: 25%;
+}
+
+.fonte{
+  font-size: 1.1rem;
+}

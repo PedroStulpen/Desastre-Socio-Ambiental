@@ -1,0 +1,181 @@
+<div class="modal-header">
+    <label class="modal-title admin-titulo-modal"> Informações do Ponto de Apoio </label>
+    <button type="button" class="btn" aria-label="Close" (click)="activeModal.dismiss('')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form>
+        <!-- <div class="row">
+            <div class="col-xs-12 campo">
+                <div class="form-group">
+                    <label class="form-label" for="emailContato">Tipo de Cadastro:</label>
+                    <select class="form-control" id="apoio" name="apoio" [(ngModel)]="apoio"
+                        (change)="tipoUsuario($event.target)">
+                        <option *ngFor="let c of listaApoio" [ngValue]="c">{{ c }}</option>
+                    </select>
+                </div>
+            </div>
+        </div> -->
+        <div class="row" *ngIf="apoio == 'Ponto de Apoio'">
+            <div class="col-12 campo">
+                <div class="form-group">
+                    <label class="form-label" for="empresa">Nome Ponto de Apoio <span
+                            class="asterisco">*</span></label>
+                    <input name="ponto" type="text" [(ngModel)]="info.nome" class="form-control">
+                </div>
+                <span *ngIf="erroPonto" class="error">
+                    É necessário preencher o nome.
+                </span>
+            </div>
+            <div class="col-xs-12 col-md-6 campo">
+                <div class="form-group">
+                    <label class="form-label" for="empresa">Responsável <span class="asterisco">*</span></label>
+                    <input name="responsavel" type="text" [(ngModel)]="info.responsavel" class="form-control">
+                </div>
+                <span *ngIf="erroResponsavel" class="error">
+                    É necessário preencher o responsável.
+                </span>
+            </div>
+            <div class="col-xs-12 col-md-6 campo">
+                <div class="form-group">
+                    <label class="form-label" for="empresa">Celular <span class="asterisco">*</span></label>
+                    <input name="celular" type="text" [(ngModel)]="info.celular" class="form-control"
+                        mask="(00) 00000-0000" [dropSpecialCharacters]="false">
+                </div>
+                <span *ngIf="erroCelular" class="error">
+                    É necessário preencher o celular.
+                </span>
+            </div>
+            <div class="col-xs-12 campo">
+              <div class="form-check">
+                <label class="form-check-label">Contato privado</label>
+                <input class="form-check-input" type="checkbox" name="contato" [(ngModel)]="info.contatoPrivado">
+             </div>
+            </div>
+            <div class="col-xs-12 campo">
+              <div class="form-group">
+                  <label class="form-label" for="empresa">Bairro <span class="asterisco">*</span></label>
+                  <input name="bairro" type="text" [(ngModel)]="info.bairro" class="form-control">
+              </div>
+              <span *ngIf="erroBairro" class="error">
+                  É necessário preencher o bairro.
+              </span>
+            </div>
+            <div class="col-xs-12 campo">
+                <div class="form-group">
+                    <label class="form-label" for="empresa">Endereço <span class="asterisco">*</span></label>
+                    <input name="endereco" type="text" [(ngModel)]="info.endereco" class="form-control">
+                </div>
+                <span *ngIf="erroEndereco" class="error">
+                    É necessário preencher o endereço.
+                </span>
+            </div>
+            <div class="col-xs-12 campo">
+                <div class="form-group">
+                    <label class="form-label" for="empresa">Referência</label>
+                    <input name="referencia" type="text" [(ngModel)]="info.referencia" class="form-control">
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6 campo">
+                <div class="form-group">
+                    <label class="form-label" for="emailContato">Senha <span class="asterisco">*</span></label>
+                    <input name="senha" type="password" [(ngModel)]="info.senha" class="form-control">
+                </div>
+                <span *ngIf="erroSenha" class="error">
+                    É necessário preencher a senha.
+                </span>
+            </div>
+            <div class="col-xs-12 col-md-6 campo">
+                <div class="form-group">
+                    <label class="form-label" for="emailContato">Repetir Senha <span
+                            class="asterisco">*</span></label>
+                    <input name="senha" type="password" [(ngModel)]="info.senhaRepetir" class="form-control">
+                </div>
+                <span *ngIf="erroSenha" class="error">
+                    É necessário preencher a senha.
+                </span>
+            </div>
+            <div class="col-xs-12 campo">
+                <div class="form-group">
+                    <label class="form-label" for="empresa">Veículo de Acesso <span class="asterisco">*</span></label>
+                    <mat-chip-list #chipList>
+                      <mat-chip *ngFor="let v of veiculosSelecionados" (removed)="remove(v)">
+                        {{v.nome}}
+                        <button matChipRemove>
+                          <mat-icon>cancel</mat-icon>
+                        </button>
+                      </mat-chip>
+                      <input class="form-control"
+                          [formControl]="veiculosControl"
+                          [matAutocomplete]="auto"
+                          [matChipInputFor]="chipList"
+                          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                          [matChipInputAddOnBlur]="true">
+                    </mat-chip-list>
+                    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                      <mat-option *ngFor="let v of veiculosFiltrados | async" [value]="v">
+                        {{v.nome}}
+                      </mat-option>
+                    </mat-autocomplete>
+                </div>
+                <span *ngIf="erroVeiculo" class="error">
+                    É necessário preencher ao menos um veiculo.
+                </span>
+            </div>
+        </div>
+        <!-- ///// -->
+        <!-- <div class="row" *ngIf="apoio == 'Voluntário'">
+            <div class="col-12 campo">
+                <div class="form-group">
+                    <label class="form-label" for="empresa">Nome <span class="asterisco">*</span></label>
+                    <input name="nome" type="text" [(ngModel)]="info.nome" class="form-control">
+                </div>
+                <span *ngIf="erroNome" class="error">
+                    É necessário preencher o nome.
+                </span>
+            </div>
+            <div class="col-xs-12 col-md-6 campo">
+                <div class="form-group">
+                    <label class="form-label" for="emailContato">Celular <span class="asterisco">*</span></label>
+                    <input name="celular" type="text" [(ngModel)]="info.celular" [dropSpecialCharacters]="false"
+                        class="form-control" mask="(00) 00000-0000">
+                </div>
+                <span *ngIf="erroCelular" class="error">
+                    É necessário preencher o celular.
+                </span>
+            </div>
+            <div class="col-xs-12 col-md-6 campo">
+                <div class="form-group">
+                    <label class="form-label" for="emailContato">Senha <span class="asterisco">*</span></label>
+                    <input name="senha" type="password" [(ngModel)]="info.senha" class="form-control">
+                </div>
+                <span *ngIf="erroSenha" class="error">
+                    É necessário preencher a senha.
+                </span>
+            </div>
+            <div class="col-xs-12 col-md-6 campo">
+                <div class="form-group">
+                    <label class="form-label" for="emailContato">Repetir Senha <span
+                            class="asterisco">*</span></label>
+                    <input name="senha" type="password" [(ngModel)]="info.senhaRepetir" class="form-control">
+                </div>
+                <span *ngIf="erroSenha" class="error">
+                    É necessário preencher a senha.
+                </span>
+            </div>
+        </div> -->
+    </form>
+</div>
+<br>
+<div class="modal-footer">
+    <button mat-raised-button (click)="cadastrar()" class="btn-admin-sucesso">
+        <span class="material-icons">
+            save
+        </span><span> Salvar</span>
+    </button>
+    <button mat-button (click)="activeModal.close('')" class="btn btn-light btn-admin-tamanho"><span
+            class="material-icons">
+            close
+        </span><span> Fechar</span></button>
+</div>

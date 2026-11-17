@@ -1,0 +1,58 @@
+<div class="modal-header">
+    <label class="modal-title admin-titulo-modal"> Informações do Excedente </label>
+    <button type="button" class="btn" aria-label="Close" (click)="activeModal.dismiss('')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xs-12 campo">
+                    <div class="form-group">
+                        <label class="form-label" for="item">Selecione o Item: <span class="asterisco">*</span></label>
+                        <input type="text" class="form-control" [formControl]="itemControl" [matAutocomplete]="auto" />
+                        <mat-autocomplete #auto="matAutocomplete">
+                          <mat-option *ngFor="let c of itensFiltrados | async" [value]="c.nome">
+                            {{c.nome}}
+                          </mat-option>
+                        </mat-autocomplete>
+                        <span *ngIf="erroItem" class="error">
+                            É necessário informar o item.
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 campo">
+                <div class="form-group">
+                    <label class="form-label" for="qtd">Quantidade <!--<span class="asterisco">*</span>--></label>
+                    <input name="qtd" type="number" [(ngModel)]="info.quantidade" class="form-control">
+                </div>
+                <!-- <span *ngIf="erroQuantidade" class="error">
+                    É necessário preencher a quantidade.
+                </span> -->
+            </div>
+            <div class="col-12 campo">
+              <div class="form-group">
+                  <label class="form-label" for="obs">Observação </label>
+                  <input name="obs" type="text" [(ngModel)]="info.observacao" class="form-control">
+              </div>
+            </div>
+            <div class="col-xs-12 text-center campo" *ngIf="erroInformacoes" class="error">
+                {{erroMensagem}}
+            </div>
+        </div>
+    </form>
+</div>
+<br>
+<div class="modal-footer">
+    <button mat-raised-button (click)="salvar()" class="btn-admin-sucesso">
+        <span class="material-icons">
+            save
+        </span><span> Salvar</span>
+    </button>
+    <button mat-button (click)="activeModal.close('')" class="btn btn-light btn-admin-tamanho"><span
+            class="material-icons">
+            close
+        </span><span> Fechar</span></button>
+</div>

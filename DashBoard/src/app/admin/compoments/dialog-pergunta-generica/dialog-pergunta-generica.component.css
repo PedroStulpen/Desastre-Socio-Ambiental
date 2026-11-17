@@ -1,0 +1,13 @@
+.modal-header {
+    padding: 0px !important;
+    background-color: #ececec;
+  }
+  
+  .modal-title {
+    margin-left: 20px !important;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+    font-size: 1.5em !important;
+    color: rgb(9, 1, 82);
+  }
+  

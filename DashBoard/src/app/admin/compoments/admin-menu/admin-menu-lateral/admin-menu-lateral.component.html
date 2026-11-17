@@ -1,0 +1,30 @@
+<div class="logoMenuLateral" autosize style="margin-top: -0px !important; z-index: 1000000;">
+  <br>
+  <label style="color:#ffffff; font-size: 1.8rem;">SOS Petrópolis</label>
+</div>
+<mat-nav-list class="dashboard">
+  <a mat-list-item (click)="toggleActive($event);" routerLink="/admin-necessidade">
+    <mat-icon mat-list-icon>checklist</mat-icon>
+    <p matLine>Lista de Necessidades</p>
+  </a>
+  <mat-divider></mat-divider>
+  <a mat-list-item (click)="toggleActive($event);" routerLink="/admin-excedente">
+    <mat-icon mat-list-icon>checklist_rtl</mat-icon>
+    <p matLine>Lista de Disponibilidades</p>
+  </a>
+  <!-- <mat-divider></mat-divider>
+  <a mat-list-item (click)="toggleActive($event);" routerLink="/admin-item">
+    <mat-icon mat-list-icon>format_list_numbered</mat-icon>
+    <p matLine>Lista de Itens</p>
+  </a> -->
+  <mat-divider></mat-divider>
+  <a mat-list-item (click)="toggleActive($event);" routerLink="/admin-perfil">
+    <mat-icon mat-list-icon>person</mat-icon>
+    <p matLine>Perfil</p>
+  </a>
+  <mat-divider></mat-divider>
+  <a mat-list-item (click)="toggleActive($event); sair();">
+    <mat-icon mat-list-icon>logout</mat-icon>
+    <p matLine>Sair</p>
+  </a>
+</mat-nav-list>

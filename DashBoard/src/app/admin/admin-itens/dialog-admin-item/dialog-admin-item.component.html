@@ -1,0 +1,36 @@
+<div class="modal-header">
+    <label class="modal-title admin-titulo-modal"> Informações do Item </label>
+    <button type="button" class="btn" aria-label="Close" (click)="activeModal.dismiss('')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form>
+        <div class="form-group">            
+            <div class="col-12 campo">
+                <div class="form-group">
+                    <label class="form-label" for="empresa">Item <span class="asterisco">*</span></label>
+                    <input name="ponto" type="text" [(ngModel)]="info.nome" class="form-control">
+                </div>
+                <span *ngIf="erroNome" class="error">
+                    É necessário preencher o item.
+                </span>
+            </div>
+            <div class="col-xs-12 text-center campo" *ngIf="erroInformacoes" class="error">
+                {{erroMensagem}}
+            </div>
+        </div>
+    </form>
+</div>
+<br>
+<div class="modal-footer">
+    <button mat-raised-button (click)="salvar()" class="btn-admin-sucesso">
+        <span class="material-icons">
+            save
+        </span><span> Salvar</span>
+    </button>
+    <button mat-button (click)="activeModal.close('')" class="btn btn-light btn-admin-tamanho"><span
+            class="material-icons">
+            close
+        </span><span> Fechar</span></button>
+</div>

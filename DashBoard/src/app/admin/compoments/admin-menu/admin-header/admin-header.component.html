@@ -1,0 +1,43 @@
+<mat-toolbar class="header" md-scroll-shrink>
+  <div fxHide.gt-xs class="hamburgue">
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div style="padding-top: 8px; padding-bottom: 8px;">
+    <label style="color:#ffffff; font-size: 1.8rem;">SOS Petrópolis</label>
+  </div>
+  <!-- <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs> -->
+  <div fxFlex fxLayout fxLayoutAlign="end">
+    <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+      <li>
+        <span class="profile-ava img-fluid">
+          <button mat-button [matMenuTriggerFor]="menu"><img alt="" class="img-fluid imagemPerfil"
+              src="{{imagemPerfil}}">
+          </button>
+        </span>
+        <span class="username"  fxHide.xs>{{nomeUsuario}}</span>
+        <mat-menu #menu="matMenu" style="margin-top: 30px !important;">
+          <div class="container ">
+            <span><b>{{nomeUsuario}}</b></span><br>
+            <span>{{tipoUsuario}}</span>
+            <br><br>
+            <mat-nav-list class="dashboard">
+              <!--
+              <a mat-list-item (click)="toggleActive($event)"
+                routerLink="/regulamentoEstabelecimento">
+                <mat-icon mat-list-icon>password</mat-icon>
+                <p matLine *ngIf="isExpanded">Alterar Senha</p>
+              </a>-->
+              <mat-divider></mat-divider>
+              <a mat-list-item (click)="toggleActive($event); sair();">
+                <mat-icon mat-list-icon>logout</mat-icon>
+                <p matLine *ngIf="isExpanded">Sair</p>
+              </a>
+            </mat-nav-list>
+          </div>
+        </mat-menu>
+      </li>
+    </ul>
+  </div>
+</mat-toolbar>

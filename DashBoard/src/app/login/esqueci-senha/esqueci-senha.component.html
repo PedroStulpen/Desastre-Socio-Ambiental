@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="card card-container">
+        <img id="profile-img" class="profile-img-card" src="assets/img/logo.png" />
+        <form class="form-signin" [formGroup]="form" (ngSubmit)="onSubmit()">
+            <h2 class="h3 mb-3 font-weight-normal text-center">Recuperar Acesso</h2>
+            <label for="email" class="sr-only">E-mail</label>
+            <input type="text" formControlName="username" class="form-control" placeholder="Informe seu e-mail ">
+            <div class="error" *ngIf="loginInvalid">
+                E-mail é obrigatório.
+            </div>            
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" [disabled]="form.invalid">
+                <span>RECUPERAR</span>
+            </button>
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="button" routerLink="/login">
+                <span>VOLTAR</span>
+            </button>
+            <div class="error" *ngIf="isLoginFailed">
+                {{errorMessage}}
+            </div>
+        </form>       
+    </div>
+</div>
+

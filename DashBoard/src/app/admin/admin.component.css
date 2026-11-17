@@ -1,0 +1,62 @@
+mat-sidenav-container,
+mat-sidenav-content,
+mat-sidenav {
+  height: 100%;
+}
+
+main {
+  padding: 10px;
+}
+
+mat-sidenav-container {
+  height: 100%;
+}
+
+.chevron-button {
+  transition: 300ms ease-in-out;
+  transform: rotate(0deg);
+  right: 0;
+  float: right;
+  position: absolute;
+}
+
+.chevron-button.rotated {
+  transform: rotate(180deg);
+}
+
+.conteudo {
+  padding: 20px;
+}
+
+/* titulos das paginas */
+.barraTitulo {
+  border-bottom: 1px solid #ca1e1e !important;
+}
+
+.iconeTitulo {
+  margin-left: 10px;
+  color: #120055;
+}
+
+.textoTitulo {
+  margin-left: 10px;
+  color: #120055;
+  font-size: 1.3em;
+}
+
+.corTitulo {
+  color: #000552;
+  font-size: 1.6em;
+}
+/* fim titulos das paginas */
+
+/* fim titulos das paginasgrid */
+.largura-btn-grid {
+  max-width: 150px !important;
+  min-width: 80px !important;
+}
+
+.btn-grid {
+  margin-left: 10px !important;
+}
+/* fim grid */

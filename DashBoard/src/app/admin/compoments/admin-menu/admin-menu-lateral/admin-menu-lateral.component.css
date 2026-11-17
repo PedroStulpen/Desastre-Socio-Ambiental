@@ -1,0 +1,41 @@
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover,
+a:active {
+  color: #494949;
+}
+
+.nav-caption {
+  display: inline-block;
+  padding-left: 6px;
+}
+
+.example-sidenav-container {
+  flex: 1;
+  background-color: #d1d0d0;
+}
+
+.menuLateralMobile {
+  background-color: #eeeeee !important;
+}
+
+.menuLateralMobile a {
+  color: #000000 !important;
+}
+
+.menuLateralMobile .logo {
+  max-height: 70px;
+}
+
+.logoMenuLateral {
+  background-color: #040281;
+  border-bottom: 3px solid #597ea8;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  height: 80px !important;  
+  padding-top: 13px;
+} 
