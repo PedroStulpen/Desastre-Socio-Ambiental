@@ -1,2 +1,2 @@
 # Desastre-Socio-Ambiental
-Programa sobre a tragédia que ocorreu em Petrópolis
+Programa sobre a tragédia em Petrópolis
